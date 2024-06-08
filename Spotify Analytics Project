@@ -1,0 +1,62 @@
+-- For this project, I downloaded Spotify data from Kaggle
+-- I then created a table to insert this Spotify data into
+-- Next, performed analytics on the data using SQL
+
+CREATE TABLE BIT_DB.Spotifydata (
+id integer PRIMARY KEY,
+artist_name varchar NOT NULL,
+track_name varchar NOT NULL,
+track_id varchar NOT NULL,
+popularity integer NOT NULL,
+danceability decimal(4,3) NOT NULL,
+energy decimal(4,3) NOT NULL,
+song_key integer NOT NULL,
+loudness decimal(5,3) NOT NULL,
+song_mode integer NOT NULL,
+speechiness decimal(5,4) NOT NULL,
+acousticness decimal(6,5) NOT NULL,
+instrumentalness decimal(8,7) NOT NULL,
+liveness decimal(5,4) NOT NULL,
+valence decimal(4,3) NOT NULL,
+tempo decimal(6,3) NOT NULL,
+duration_ms integer NOT NULL,
+time_signature integer NOT NULL );
+
+
+--Exploratory query to get an overview of this new table and its data
+SELECT * FROM BIT_DB.Spotifydata;
+
+--SPOTIFY DATA PROJECT QUESTIONS
+
+-- 1. Which artist has the most tracks in the Top 50?
+SELECT COUNT(artist_name) AS total_tracks,artist_name
+FROM BIT_DB.Spotifydata
+GROUP BY artist_name
+ORDER BY total_tracks DESC
+LIMIT 1
+;
+
+-- 2. What is the avg popularity, danceability, and energy by artist and track? Round to nearest integer
+SELECT
+artist_name
+,track_name
+,ROUND(avg(popularity)) AS avg_pop
+,ROUND(avg(danceability)) AS avg_dancy
+,ROUND(avg(energy)) AS avg_ene
+FROM BIT_DB.spotifydata
+GROUP BY artist_name, track_name
+;
+
+-- 3. What are the top 10 tracks and their artists by popularity?
+SELECT track_name, artist_name, popularity
+FROM BIT_DB.Spotifydata
+ORDER BY popularity DESC
+LIMIT 10
+;
+
+-- 4. What are the 5 longest songs?
+SELECT artist_name, track_name, duration
+FROM BIT_DB.Spotifydata
+ORDER BY duration DESC
+LIMIT 5
+;
