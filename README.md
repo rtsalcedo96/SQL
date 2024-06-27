@@ -7,3 +7,6 @@
 *I can be contacted via LinkedIn, phone text/call, or email 
 
 http://linkedin.com/in/ruben-salcedo-69a75015a
+
+My Tableau Public project portfolio for data visualizations:
+https://public.tableau.com/app/profile/ruben.salcedo/vizzes
