@@ -6,6 +6,7 @@
 
 *I can be contacted via LinkedIn, phone text/call, or email 
 
+My LinkedIn profile:
 http://linkedin.com/in/ruben-salcedo-69a75015a
 
 My Tableau Public project portfolio for data visualizations:
